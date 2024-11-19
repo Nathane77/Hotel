@@ -4,6 +4,7 @@ class Reservation{
     private Client $client;
     private DateTime $startDate;
     private DateTime $endDate;
+    
 
     public function __construct(string $startDate, string $endDate,Client $client, Room $room){
         $this->room = $room;
@@ -11,6 +12,7 @@ class Reservation{
         $this->startDate = new DateTime($startDate);
         $this->endDate = new DateTime($endDate);
         $this->client->addReservation($this);
+        $this->room->addReservation($this);
     }
 
     public function getEndDate()
@@ -60,4 +62,9 @@ class Reservation{
 
         return $this;
     }
+
+    public function __toString(){
+        return $this->getClient()." - ".$this->room->getRoomNB()." du ".$this->startDate->format("d-m-Y")." au ".$this->endDate->format("d-m-Y");
+    }
+
 }

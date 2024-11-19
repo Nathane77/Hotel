@@ -16,9 +16,9 @@ class Client{
         return $this->reservations;
     }
 
-    public function setReservations($reservations)
+    public function setReservation($reservation)
     {
-        $this->reservations = $reservations;
+        $this->reservation = $reservation;
 
         return $this;
     }
@@ -49,5 +49,8 @@ class Client{
         $this->name = $name;
 
         return $this;
+    }
+    public function __toString(){
+        return $this->name." ".$this->lastName." ";
     }
 }

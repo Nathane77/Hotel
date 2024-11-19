@@ -40,8 +40,8 @@ class Client{
         return $this->name;
     }
 
-    public function addReservation(Reservation $reservations){
-        $this->Reservations[] = $reservations;
+    public function addReservation(Reservation $reservation){
+        $this->reservations[] = $reservation;
     }
 
     public function setName($name)
@@ -50,6 +50,24 @@ class Client{
 
         return $this;
     }
+    public function showReservation(){
+        $count= 0;
+        $result= ""; 
+        foreach($this->reservations as $reservation){
+                $count++;
+                $result .= $reservation."<br>";
+            }
+            return "Reservations de ".$this->getName()."<p>".$count." Reservation !</p>".$result."Total: ".$this->calcStay()." €<br><br>";   
+        }
+    
+    public function calcStay(){
+        $totalPrice = 0.00;
+        foreach($this->reservations as $reservation){
+            $totalPrice += ($reservation->calcPrice());
+        }
+        return $totalPrice;
+    }
+    
     public function __toString(){
         return $this->name." ".$this->lastName." ";
     }

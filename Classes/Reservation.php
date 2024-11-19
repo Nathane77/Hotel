@@ -63,6 +63,12 @@ class Reservation{
         return $this;
     }
 
+    public function calcPrice(){
+        $interval = $this->startDate->diff($this->endDate);
+        $price = $interval->format('%a') * $this->room->getPrice();
+        return $price;
+    }
+
     public function __toString(){
         return $this->getClient()." - ".$this->room->getRoomNB()." du ".$this->startDate->format("d-m-Y")." au ".$this->endDate->format("d-m-Y");
     }

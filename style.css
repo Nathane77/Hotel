@@ -1,0 +1,18 @@
+html{
+    background-color: grey;
+    color: white;
+}
+
+.status{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    width: 28em;
+}
+p{
+    margin: 0.50em 0;
+    text-align: center;
+    border: 1px solid white;
+    background-color: green;
+    width: 7em;
+}
+

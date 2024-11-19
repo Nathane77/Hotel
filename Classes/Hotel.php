@@ -50,23 +50,39 @@ class Hotel{
         }
         else{
         $nbEmptyRoom = (count($this->rooms) - $count);
-        return count($this->rooms)."<br> Nombre de chambres reservées: ".$count."<br> Nombre de chambres disponible ".$nbEmptyRoom;
+        return "Nombre de chambres: ".count($this->rooms)."<br> Nombre de chambres reservées: ".$count."<br> Nombre de chambres disponible ".$nbEmptyRoom;
         }
     }
 
     public function showReservation(){
+        $count= 0;
+        $result= ""; 
         foreach($this->rooms as $room){
             foreach($room->getReservations() as $reservation){
-                return $reservation;
+                $count++;
+                $result .= $reservation."<br>";
+            }
         }
-    }
-}  
+        return "reservations de l'hotel ".$this->getName()."<p>".$count." Reservation !</p>".$result."<br>";
+        
+        
+    }  
     // j'ai accès à la propriété rooms sur laquele je peux boucler 
         // pour chaque objet rooms j'aurais accès à sa collection de de reservation
     public function getInfos(){
-        echo $this->getName()."<br>".$this->getAddress()."<br> Nombre de chambres: ".$this->countRooms()."<br>".$this->showReservation();
+        return $this->getName()."<br>".$this->getAddress()."<br>".$this->countRooms()."<br><br><br><br>";
     }
 
+    public function getStatus(){
+        echo "Status des chambres de ".$this;
+        echo "<div class=status> <br>"."<div class=title>CHAMBRE PRIX WIFI ETAT   </div>";
+        foreach($this->rooms as $room){
+            echo "<div class=room>".$room->getRoomNB()."  ".$room->getPrice()." € "."wifi logo "."disponible"."</div>";
+        }
+        echo "</div>";
+    }
 
-
+    public function __toString(){
+        return $this->name;
+    }
 }

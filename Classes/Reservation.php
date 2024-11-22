@@ -13,6 +13,7 @@ class Reservation{
         $this->endDate = new DateTime($endDate);
         $this->client->addReservation($this);
         $this->room->addReservation($this);
+        $this->room->reserveRoom();
     }
 
     public function getEndDate()

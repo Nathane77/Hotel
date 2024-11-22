@@ -89,15 +89,32 @@ class Room{
         return $this;
     }
     
-        
     public function addReservation(Reservation $reservation){
         $this->reservations[] = $reservation;
-        $this->getAvailable = false;
+    }
+    public function reserveRoom(){
+        $this->setAvailable(false);
     }
 
     public function countReservation(){
         return count($this->reservations);
-         
+    }
+
+    public function showIcon(){
+        if ($this->getWifi()) {
+            $available = "<i class='fa-solid fa-wifi'></i>";
+        } else {
+            $available = "";
+        }
+        return $available;
+        }            
+
+    public function ShowStatus(){
+        if ($this->available === false) {
+            return "<p class=reserved>Réservée</p>";
+        } else {
+            return "<p class=available>Disponible</p>";
+        }
     }
 
     public function __toString(){

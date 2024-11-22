@@ -74,15 +74,29 @@ class Hotel{
     }
 
     public function getStatus(){
-        echo "Status des chambres de ".$this;
-        echo "<div class=status> <br>"."<div class=title>CHAMBRE PRIX WIFI ETAT   </div>";
+        $result = "<div class=status><table>
+        <thead>
+            <tr>
+                <th>CHAMBRE</th>
+                <th>PRIX</th>
+                <th>WIFI</th>
+                <th>ETAT</th>
+            </tr>
+        </thead>";
         foreach($this->rooms as $room){
-            echo "<div class=room>".$room->getRoomNB()."  ".$room->getPrice()." € "."wifi logo "."disponible"."</div>";
+            $result .= "<tr>
+            <td>".$room->getRoomNB()."</td>
+            <td>".$room->getPrice()." €</td>
+            <td>".$room->showIcon()."</td>
+            <td>".$room->ShowStatus()."</td></tr></div>";
         }
-        echo "</div>";
+       $result .= "</table>";
+       return $result;
     }
 
     public function __toString(){
         return $this->name;
     }
 }
+
+//

@@ -1,6 +1,6 @@
-# **README First APP**
+# **README Hotel OOP**
 
-## **First APP**
+## **Hotel OOP**
 
 ## **Introduction**
 

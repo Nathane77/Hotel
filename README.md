@@ -22,6 +22,6 @@ This function shows each reservation of an `hotel` using his relationship with t
         return "reservations de l'hotel ".$this->getName()."<p>".$count." Reservation !</p>".$result."<br>"; 
     }  
 ```
-The hotel has **NO** link to the reservation, only the room makes the link between the two.
+The hotel has **NO** link to the `reservation`, only the `room` makes the link between the two.
 
 ## **if you have question about the project you can contact me on my [linkedIn](https://www.linkedin.com/in/nassim-hammoudi-8a5235334/)**

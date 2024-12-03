@@ -63,12 +63,9 @@ class Hotel{
                 $result .= $reservation."<br>";
             }
         }
-        return "reservations de l'hotel ".$this->getName()."<p>".$count." Reservation !</p>".$result."<br>";
-        
-        
-    }  
-    // j'ai accès à la propriété rooms sur laquele je peux boucler 
-        // pour chaque objet rooms j'aurais accès à sa collection de de reservation
+        return "reservations de l'hotel ".$this->getName()."<p>".$count." Reservation !</p>".$result."<br>"; 
+    }
+    
     public function getInfos(){
         return $this->getName()."<br>".$this->getAddress()."<br>".$this->countRooms()."<br><br><br><br>";
     }
